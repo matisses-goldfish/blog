@@ -1,0 +1,16 @@
+[
+    {
+        "username":"expertcoder",
+        "name":"Carissa K",
+        "bio":"Hello, Im a software engineer from ATX, I'm an expert in html, css, and javascript",
+        "email":"carissak@gmail.com",
+        "password":"askjfbawiufhaf"
+    },
+    {
+        "username":"Iheartdesign",
+        "name": "Billy H",
+        "bio":"Im a UI/UX designer, so I can tackle any questions regarding figma, layouts, and front-end interface!",
+        "email":"billyH@gmail.com",
+        "password":"sdkfhbeiEQWLksd"
+    }
+]

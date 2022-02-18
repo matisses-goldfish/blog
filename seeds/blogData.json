@@ -1,0 +1,17 @@
+[
+    {
+        "topic":"Javascript",
+        "title":"my if/else function wont work",
+        "description":"Help! My javascript function wont accept my if else statement. what should I do?"
+    },
+    {
+        "topic":"HTML",
+        "title":" How would I insert an img into my html?",
+        "description":"I cant seem to rember the syntax, would anyone be able to help?"
+    },
+    {
+        "topic":"CSS",
+        "title":"How do I change the color of my range finder?",
+        "description":"I'm working wih materalize, but I cant find the right syntax to change the color of the range. Please Help!!"
+    }
+]

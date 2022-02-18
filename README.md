@@ -1,21 +1,36 @@
-# 14 Model-View-Controller (MVC): Tech Blog
 
-## Your Task
+# MVC (Model-View-Controller) Blog
+[![License: ](https://img.shields.io/badge/license-MIT-brightgreen)](https://opensource.org/licenses/)
+#### **Name:** Honore Nelson 
+#### **Deployed Link:** 
+#### **Github Repo:** https://github.com/matisses-goldfish/blog
+---
+    
+##  Table of Contents:
+* [Description](#description)
+* [Walkthrough](#walkthrough)
+* [Technologies Used](#technologies-used)
+* [Design](#design)
+* [Wireframe](#wireframe)
+* [Usage Information](#usage)
+* [Contribution Guidelines](#contribution-guidelines)
+* [Authors](#authors)
+* [License](#license)
+* [Question](#questions)
 
-Writing about tech can be just as important as making it. Developers spend plenty of time creating new applications and debugging existing codebases, but most developers also spend at least some of their time reading and writing about technical concepts, recent advancements, and new technologies. A simple Google search for any concept covered in this course returns thousands of think pieces and tutorials from developers of all skill levels!
 
-Your task this week is to build a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. You’ll build this site completely from scratch and deploy it to Heroku. Your app will follow the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
+## Description:
+---
+Writing about tech can be just as important as making it. Developers spend plenty of time creating new applications and debugging existing codebases, but most developers also spend at least some of their time reading and writing about technical concepts, recent advancements, and new technologies.
 
-## User Story
+My task was to build a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. You’ll build this site completely from scratch and deploy it to Heroku. Your app will follow the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
 
-```md
-AS A developer who writes about tech
-I WANT a CMS-style blog site
-SO THAT I can publish articles, blog posts, and my thoughts and opinions
-```
-
-## Acceptance Criteria
-
+## Walkthrough:
+---
+![Walkthrough video]()()
+    
+## Aceptance Criteria:
+---
 ```md
 GIVEN a CMS-style blog site
 WHEN I visit the site for the first time
@@ -52,7 +67,56 @@ WHEN I am idle on the site for more than a set time
 THEN I am able to view comments but I am prompted to log in again before I can add, update, or delete comments
 ```
 
-## Mock-Up
+## Technologies Used:
+---
+- **Bcrypt:** encripting user passwords to prevent hacking
+- **Dotenv:** loads environment varriables from our .env file to a process.env
+- **Express:** Backend framework for node.js
+- **Express-Handlebars:** View client-side data within our handlabars
+- **Express-Session:** The application of cookies, and tracking of client-side login status
+- **Find-Config:** 
+- **MySQL2:** Database and storge of client-side information
+- **nodemon:** Automatically launching our server.js to test funcationality of our application
+- **materalize:** Create a clean and consise user interface
+
+## Design:
+---
+
+> ### Deisgn Concept:
+> I wanted the design to be clean and simple, allowing for a clear and consise front end framework. 
+
+![Main Page Design](assets/designdashss.png)
+
+
+## Wireframe:
+---
+![Main Page Wireframe](assets/dashboard-ss.png)
+
+## Usage:
+---
+Begin the application by opening the link provided (), Create an account, and login! Want to add to this discussion? simply fill out the discussion form to ask a question about anything tech related!
+     
+    
+## Contribution Guidelines:
+---
+Contribute to this project using the Github work flow model!
+
+    
+## Authors
+---
+* **Honore Nelson** - *Initial work* - [blog](https://github.com/matisses-goldfish/blog)
+    
+## License
+---
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+<br></br>
+
+## Question
+---
+Any additional question? Reach out via Github!
+* Honore Nelson: https://github.com/matisses-goldfish
+
 
 The following animation demonstrates the application functionality:
 
