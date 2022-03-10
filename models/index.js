@@ -1,5 +1,7 @@
 const User = require('./User');
 const BlogPost = require('./BlogPost');
+const Comment = require('./Comment')
+// const { toPlainObject } = require('lodash');
 
 BlogPost.belongsTo(User, {
     foreignKey: 'user_id'
@@ -8,9 +10,14 @@ BlogPost.belongsTo(User, {
 User.hasMany(BlogPost, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE'
-})
+});
 
-// topic has many discussions
-// dicussion has one topic
+User.hasMany(Comment, {
+    foreignKey:'user_id'
+});
 
-module.exports = { User, BlogPost };
+Comment.belongsTo(User, {
+    foreignKey: 'user_id'
+}); 
+
+module.exports = { User, BlogPost, Comment};
