@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { BlogPost, User } = require('../models');
+const { User, BlogPost, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) =>{
@@ -8,7 +8,7 @@ router.get('/', async (req, res) =>{
             include: [
                 {
                     model: User,
-                    attributes: ['name']
+                    attributes: ['username']
                 },
             ],
         });
@@ -25,13 +25,14 @@ router.get('/', async (req, res) =>{
     }
 });
 
+
 router.get('/blog_post/:id', async (req, res) => {
     try {
         const blogData = await BlogPost.findByPk(req.params.id, {
             include: [
                 {
                 model: User,
-                attributes: ['name']
+                attributes: ['username']
                 },
             ],
         });
@@ -47,6 +48,60 @@ router.get('/blog_post/:id', async (req, res) => {
     }
 });
 
+router.get('/dashboard', withAuth, async (req, res) => {
+	try {
+		const userData = await User.findByPk(req.session.user_id, {
+			attributes: {
+				exclude: ['password']
+			},
+			include: [{
+				model: BlogPost
+			}],
+		});
+
+		const user = userData.get({
+			plain: true
+		});
+
+		res.render('dashboard', {
+			...user,
+			logged_in: true
+		});
+	} catch (err) {
+		res.status(500).json(err);
+	}
+});
+
+router.get('/blog_post/:id', async (req, res) => {
+	try {
+		const blogData = await Blog.findByPk(req.params.id, {
+			include: [
+				{
+					model: User,
+					attributes: ['username'],
+				}, {
+					model: Comment,
+					include: [
+						User
+					]
+				}
+			],
+		});
+
+		const blog = blogData.get({
+			plain: true
+		});
+
+		res.render('blog_post', {
+			...blog,
+			logged_in: req.session.logged_in
+		});
+	} catch (err) {
+		res.status(500).json(err);
+	}
+});
+
+
 router.get('/blogForm', withAuth, async(req,res) =>{
     console.log('this is the blogForm route')
     if (!req.session.logged_in) {
@@ -56,28 +111,14 @@ router.get('/blogForm', withAuth, async(req,res) =>{
     res.render('blogForm');
 });
 
-//DO WE ADD A USER PROFILE PAGE ROUTE HERE?
 router.get('/login', (req, res) => {
-    if (req.session.logged_in) {
-        res.redirect('/');
-        return;
-    }
+	if (req.session.logged_in) {
+		res.redirect('/dashboard');
+		return;
+	}
 
-    res.render('login');
+	res.render('login');
 });
-
-router.post('/comment', async (req,res) => {
-    console.log ('this is the comment route')
-        try {
-            const commentData = await Comments.create({
-            ...req.body,
-            user_id: req.session.user_id,
-        });
-        res.status(200).json({message: "comment successfully created"});
-    } catch (err) {
-        res.status(400).json({ message: "error posting comment"})
-    }
-})
 
 router.post('/logout', (req, res) => {
     console.log('logout route before if statement')
@@ -86,9 +127,16 @@ router.post('/logout', (req, res) => {
             res.status(204).end();
         });
     } else {
-        res.status(404).end();    }
+        res.status(404).end();
+    }
 });
 
-
+router.get('/signUp', (req, res) => {
+	if (req.session.logged_in) {
+		res.redirect('/dashboard');
+		return;
+	}
+	res.render('signUp');
+});
 
 module.exports = router;

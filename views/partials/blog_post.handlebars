@@ -11,13 +11,22 @@
                     {{ description }}
                 </p>
                 <h5 id="userID">
-                 <p>Posted By: {{user.name}}</p>
+                 <p>Posted By: {{user.username}}</p>
                 </h5>
-
+                <p id="dateCreated">
+                {{ date_created }}
+                </p>
                 {{#if logged_in}}
-                <a href="/login"><p>add comment</p></a>
-                {{else}}
+
                 {{>comment}}
+
+                {{else}}
+
+                {{>comment}}
+
+                
+                <a href="/login"><p>add comment</p></a>
+
                 {{/if}}
             </div>
         </div>

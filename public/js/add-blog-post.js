@@ -5,6 +5,7 @@ const blogFormHandler = async (event) => {
     const title = document.querySelector('#title').value.trim();
     const discussion = document.querySelector('#discussion').value.trim();
     if (topic && title && discussion) {
+        // fetch api isnt correct 
         const response = await fetch('/api/blog_post', {
             method: 'POST',
             body: JSON.stringify({ topic, title, discussion }),

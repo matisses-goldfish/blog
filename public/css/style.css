@@ -65,9 +65,12 @@
   color: rgb(49, 47, 47);
     /* font-size: ; */
   font-weight: 600;
-
 }
-
+#dateCreated{
+  color: rgb(146, 146, 146);
+  /* font-size: ; */
+font-weight: 600;
+}
 /* login / signup */
 
 .card {
@@ -105,4 +108,16 @@ label{
 
   padding: 5%;
   border-radius: 10px;
+}
+
+/* login */
+.loginStyle{
+  margin-left:5%;
+  margin-right:5%
+}
+
+/* signup */
+.signupStyle{
+  margin-left:5%;
+  margin-right:5%
 }
