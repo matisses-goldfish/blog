@@ -1,6 +1,5 @@
 const commentFormHandler = async (event) => {
     event.preventDefault();
-    console.log('this is the comment form handler before the if statement');
     const comment = document.querySelector('#newComment').value.trim();
 
     // need to append an element onto dashboard page on each post
@@ -10,7 +9,7 @@ const commentFormHandler = async (event) => {
             body: JSON.stringify({ response, topic, date_created }),
             headers: { 'Content-Type': 'application/json' },
         });
-        console.log('this is the commentFormHandler')
+        console.log('create comment was a success!')
         if (response.ok) {
             alert('comment posted!')
         } else {
@@ -19,4 +18,4 @@ const commentFormHandler = async (event) => {
     }
 };
 
-document.querySelector('#commentForm').addEventListener('submit', commentFormHandler);
+document.querySelector('.commentForm').addEventListener('submit', commentFormHandler);

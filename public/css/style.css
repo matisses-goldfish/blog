@@ -30,18 +30,6 @@
   text-align: center;
 }
 
-.nav-item:hover {
-  background: rgba(255, 255, 255, 0.1);
-  box-sizing: border-box;
-  position: relative;
-  color: #f4f4f4;
-  box-sizing: border-box;
-  position: relative;
-  cursor: pointer;
-  outline: 0;
-  border: none;
-}
-
 /* post */
 
 .post{
@@ -104,5 +92,17 @@ label{
   font-family: Roboto, Helvetica Neue, sans-serif;
   font-size: 40px;
   font-weight: 600;
+
+  padding-bottom: 3%;
 }
 
+#discussionContainer{
+  border: 2px solid darkgrey;
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-bottom: 3%;
+  margin-top: 3%;
+
+  padding: 5%;
+  border-radius: 10px;
+}
