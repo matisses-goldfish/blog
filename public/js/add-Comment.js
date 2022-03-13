@@ -12,7 +12,7 @@ const commentFormHandler = async (event) => {
         });
         console.log('this is the commentFormHandler')
         if (response.ok) {
-            alert('thank you for your comment!')
+            alert('comment posted!')
         } else {
             alert(response.statusText)
         }

@@ -86,3 +86,14 @@
   margin: 2%;
   padding: 2%;
 }
+
+/* comment */
+.commentForm{
+  padding: 2%;
+  border: 2px solid darkgrey;
+  border-radius: 10px;
+  
+}
+label{
+  font-size: 20px;;
+}

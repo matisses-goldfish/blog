@@ -7,13 +7,21 @@
                 <h2 id="title">
                     {{ title }}
                 </h2>
-                <p id="comment">
+                <p id="description">
                     {{ description }}
                 </p>
                 <h5 id="userID">
                  <p>Posted By: {{user.name}}</p>
                 </h5>
+                {{#if logged_in}}
+                {{>comment}}
+                {{else}}
+                <a href="/login"><p>add comment</p></a>
+
+                {{/if}}
             </div>
         </div>
     </div>
+    <script src="/js/add-blog-post.js"></script>
+
 

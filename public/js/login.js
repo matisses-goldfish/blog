@@ -1,6 +1,6 @@
 const loginFormHandler = async (event) => {
   event.preventDefault();
-  console.log('this is the form handler function before the if statements')
+  console.log('user is now logged into the application')
   const email = document.querySelector('#email-login').value.trim();
   const password = document.querySelector('#password-login').value.trim();
 
@@ -19,9 +19,10 @@ const loginFormHandler = async (event) => {
   }
 };
 
+
 const newUserFormHandler = async (event) => {
   event.preventDefault();
-  console.log("this is the new user form handler function before the if statement")
+  console.log('user is now logged out of the application')
   const username = document.querySelector('#username-signup').value.trim();
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
@@ -33,11 +34,11 @@ const newUserFormHandler = async (event) => {
           headers: { 'Content-Type': 'application/json' },
       });
       document.location.replace('/');
-      // if (response.ok) {
-      //     document.location.replace('/');
-      // } else {
-      //     alert('Failed to create a new user!  Please try again');
-      // }
+      if (response.ok) {
+          document.location.replace('/');
+      } else {
+          alert('failed to create account, please try again at a latter time');
+      }
   }
 };
 

@@ -50,10 +50,10 @@ router.get('/blog_post/:id', async (req, res) => {
 router.get('/blogForm', withAuth, async(req,res) =>{
     console.log('this is the blogForm route')
     if (!req.session.logged_in) {
-        res.redirect('/login');
+        res.redirect('/blogForm');
         return;
     }
-    res.render('blogForm');
+    res.render('login');
 });
 
 //DO WE ADD A USER PROFILE PAGE ROUTE HERE?
@@ -86,8 +86,7 @@ router.post('/logout', (req, res) => {
             res.status(204).end();
         });
     } else {
-        res.status(404).end();
-    }
+        res.status(404).end();    }
 });
 
 
