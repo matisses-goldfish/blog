@@ -1,14 +1,13 @@
-<div>
-    <h2>
-        Welcome to the tech blog!
-    </h2>
-    <h4>
-        A forum where anyone with a tech related question can ask the community
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Welcome to the tech blog!</h1>
+    <p class="lead">A forum where anyone with a tech related question can ask the community
         and begin a local discussion.
-    </h4>
+    </p>
+  </div>
 </div>
 <div class="container">
     {{#each blogPosts as |blogPost| }}
-    {{> post}}
+    {{> blog_post}}
     {{/each}}
 </div>

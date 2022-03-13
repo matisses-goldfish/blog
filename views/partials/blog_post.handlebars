@@ -2,17 +2,18 @@
         <div class="row">
             <div class="col">
                 <h5 id="topic">
-                    <a href="/topic/{{topic.id}}"> {{ BlogPost.topic }} </a>
+                    <a> {{ topic }} </a>
                 </h5>
                 <h2 id="title">
-                    {{ BlogPost.title }}
+                    {{ title }}
                 </h2>
                 <p id="comment">
-                    {{ BlogPost.comment }}
+                    {{ description }}
                 </p>
                 <h5 id="userID">
-                    <a href="/topic/{{blogPost.id}}"> Posted By: {{BlogPost.user_id}}</a> 
+                 <p>Posted By: {{user.name}}</p>
                 </h5>
             </div>
         </div>
     </div>
+
