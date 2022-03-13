@@ -16,14 +16,12 @@
                 <p id="dateCreated">
                 {{ date_created }}
                 </p>
+                
                 {{#if logged_in}}
 
                 {{>comment}}
 
                 {{else}}
-
-                {{>comment}}
-
                 
                 <a href="/login"><p>add comment</p></a>
 
