@@ -17,11 +17,11 @@
         </li>
         {{#if logged_in}}
         <li class="nav-item">
-          <a class="nav-link" href="/login"> Login</a>
+          <a class="nav-link" id="logout" href="/"> Logout</a>
         </li>
         {{else}}
         <li class="nav-item">
-          <a class="nav-link"href="/login">Logout</a>
+          <a class="nav-link" href="/login">Login</a>
         </li>
         {{/if}}
       </ul>
@@ -30,5 +30,5 @@
 </nav>
 
   <script src="/js/logout.js"></script>
-  <script src="/js/login.js"></script>
+  {{!-- <script src="/js/login.js"></script> --}}
 

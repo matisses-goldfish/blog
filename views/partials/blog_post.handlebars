@@ -13,11 +13,11 @@
                 <h5 id="userID">
                  <p>Posted By: {{user.name}}</p>
                 </h5>
-                {{#if logged_in}}
-                {{>comment}}
-                {{else}}
-                <a href="/login"><p>add comment</p></a>
 
+                {{#if logged_in}}
+                <a href="/login"><p>add comment</p></a>
+                {{else}}
+                {{>comment}}
                 {{/if}}
             </div>
         </div>

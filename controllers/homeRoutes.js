@@ -50,10 +50,10 @@ router.get('/blog_post/:id', async (req, res) => {
 router.get('/blogForm', withAuth, async(req,res) =>{
     console.log('this is the blogForm route')
     if (!req.session.logged_in) {
-        res.redirect('/blogForm');
+        res.redirect('/login');
         return;
     }
-    res.render('login');
+    res.render('blogForm');
 });
 
 //DO WE ADD A USER PROFILE PAGE ROUTE HERE?
