@@ -1,47 +1,25 @@
-// const commentFormHandler = async (event) => {
-//     event.preventDefault();
-//     const comment = document.querySelector('#newComment').value.trim();
+const commentFormHandler = async (event) => {
+    event.preventDefault();
 
-//     // need to append an element onto dashboard page on each post
-//     if (comment) {
-//         const response = await fetch('/comment', {
-//             method: 'POST',
-//             body: JSON.stringify({ response, topic, date_created }),
-//             headers: { 'Content-Type': 'application/json' },
-//         });
-//         console.log('create comment was a success!')
-//         if (response.ok) {
-//             alert('comment posted!')
-//         } else {
-//             alert(response.statusText)
-//         }
-//     }
-// };
+	console.log('this is the form handler function before the if statements')
 
-// document.querySelector('.commentForm').addEventListener('submit', commentFormHandler);
+    const response = document.querySelector('#newComment').value.trim();
 
-const commentFormHandler = async function (event) {
-	event.preventDefault();
+    // need to append an element onto dashboard page on each post
+    if (response) {
+        const newComment = await fetch('/api/comments', {
+            method: 'POST',
+            body: JSON.stringify({ response }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+        console.log('successfully created a new coment')
 
-	const blog_id = document.querySelector('.commentForm').dataset.blogid;
-
-	const comment_description = document.querySelector('#newComment').value.trim();
-
-	if (comment_description) {
-		await fetch('/api/comments', {
-			method: 'POST',
-			body: JSON.stringify({
-				blog_id,
-				comment_description,
-			}),
-			headers: {
-				'Content-Type': 'application/json'
-			}
-		});
-		document.location.reload();
-	}
+        if (newComment.ok) {
+			document.location.replace('/');
+        } else {
+            alert(newComment.statusText)
+        }
+    }
 };
 
-document
-	.querySelector('.commentForm')
-	.addEventListener('submit', commentFormHandler);
+document.querySelector('.commentForm').addEventListener('submit', commentFormHandler);

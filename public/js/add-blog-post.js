@@ -1,9 +1,12 @@
 const blogFormHandler = async (event) => {
     event.preventDefault();
+
     console.log('this is the form handler function before the if statements')
+
     const topic = document.querySelector('#topic').value.trim();
     const title = document.querySelector('#title').value.trim();
     const discussion = document.querySelector('#discussion').value.trim();
+    
     if (topic && title && discussion) {
         // fetch api isnt correct 
         const response = await fetch('/api/blog_post', {

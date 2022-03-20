@@ -1,12 +1,17 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-router.post('/signUp', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
-    const userData = await User.create(req.body);
+    const userData = await User.create({
+      username: req.body.username,
+      email: req.body.email,
+      password: req.body.password
+    });
 
     req.session.save(() => {
       req.session.user_id = userData.id;
+      req.session.username = userData.username;
       req.session.logged_in = true;
 
       res.status(200).json(userData);
@@ -25,7 +30,7 @@ router.post('/login', async (req, res) => {
     if (!userData) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+        .json({ message: 'no user with that email, please try again or create a new account' });
       return;
     }
 
@@ -34,12 +39,13 @@ router.post('/login', async (req, res) => {
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+        .json({ message: 'incorrect password, please try again or create a new account' });
       return;
     }
 
     req.session.save(() => {
       req.session.user_id = userData.id;
+      req.session.username = userData.username;
       req.session.logged_in = true;
       
       res.json({ user: userData, message: 'You are now logged in!' });

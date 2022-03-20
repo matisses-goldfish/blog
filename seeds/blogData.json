@@ -13,5 +13,10 @@
         "topic":"CSS",
         "title":"How do I change the color of my range finder?",
         "description":"I'm working wih materalize, but I cant find the right syntax to change the color of the range. Please Help!!"
+    },
+    {
+        "topic":"MERN",
+        "title":"what is MERN? ",
+        "description":"My new job wants me to learn about mern applications. What is it, and how do I use it?"
     }
 ]

@@ -20,20 +20,19 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        // name: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false,
-        // },
-        // bio: {
-        //     type: DataTypes.STRING,
-        //     allowNull: true,
-        // },
         email: {
             type: DataTypes.STRING,
             allowNull: false,
             unique: true,
             validate: {
-                isEmail: true,
+              isEmail: true,
+            },
+          },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [5],
             },
         },
         date_joined: {
@@ -41,13 +40,7 @@ User.init(
             allowNull: false,
             defaultValue: DataTypes.NOW,
         },
-        password: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [8],
-            },
-        },
+
     },
     {
         hooks: {
@@ -58,8 +51,8 @@ User.init(
             beforeUpdate: async (updatedUserData) => {
                 if (updatedUserData.password) {
                 updatedUserData.password = await bcrypt.hash(updatedUserData.password, 12);
-                }
                 return updatedUserData
+                }
             },
         },
         sequelize,

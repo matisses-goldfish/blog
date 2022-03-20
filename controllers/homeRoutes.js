@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { User, BlogPost, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
+// get blog post
 router.get('/', async (req, res) =>{
     try {
         const blogData = await BlogPost.findAll({
@@ -12,12 +13,11 @@ router.get('/', async (req, res) =>{
                 },
             ],
         });
-        //serializing the data
+        //serializing  data
         const blogPosts = blogData.map((blogPost) => blogPost.get({ plain: true }));
 
         res.render('homepage', {
             blogPosts,
-            //should we have the user logged in here?
             logged_in: req.session.logged_in
         });
     } catch (err) {
@@ -39,14 +39,15 @@ router.get('/blog_post/:id', async (req, res) => {
     const blogPost = blogData.get({ plain:true });
 
     res.render('blog_post', {
-        blogPost,
-        
+        ...blogPost,
         logged_in: req.session.logged_in
     });
     } catch (err) {
         res.status(500).json(err);
     }
 });
+
+
 
 router.get('/dashboard', withAuth, async (req, res) => {
 	try {
@@ -120,16 +121,6 @@ router.get('/login', (req, res) => {
 	res.render('login');
 });
 
-router.post('/logout', (req, res) => {
-    console.log('logout route before if statement')
-    if (req.session.logged_in) {
-        req.session.destroy(() => {
-            res.status(204).end();
-        });
-    } else {
-        res.status(404).end();
-    }
-});
 
 router.get('/signUp', (req, res) => {
 	if (req.session.logged_in) {
