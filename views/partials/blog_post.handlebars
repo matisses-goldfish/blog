@@ -10,17 +10,22 @@
                 <p id="description">
                     {{ description }}
                 </p>
+                <p id="userID">
+                    User: {{ user.username }}
+                </p>
                 <p id="dateCreated">
                 {{ date_created }}
                 </p>
                 
                 {{#if logged_in}}
 
-                {{>comment}}
+                {{>commentForm}}
 
                 {{else}}
                 
-                <a href="/login"><p>add comment</p></a>
+                {{!-- <a href="/login"><p>add comment</p></a> --}}
+                {{>commentForm}}
+
 
                 {{/if}}
             </div>

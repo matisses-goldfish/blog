@@ -3,6 +3,7 @@ const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // get comment post
+
 router.get('/comment/:id', async (req, res) => {
 	try {
 	  const commentData = await Comment.findByPk(req.params.id, {
@@ -27,13 +28,15 @@ router.get('/comment/:id', async (req, res) => {
 router.post('/', withAuth, async (req, res) => {
   try {
     const newComment = await Comment.create({
-      ...req.body,
+      response: req.body.response,
+      post_id: req.body.post_id,
       user_id: req.session.user_id,
-    });
+      }
+    );
     
-    res.status(200).json(newComment);
+    res.status(200).json( {message: "succesfully created new comment", newComment});
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json({message: "please try again at a later time!",err});
   }
 });
 
@@ -54,4 +57,5 @@ router.delete('/:id', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 module.exports = router;
