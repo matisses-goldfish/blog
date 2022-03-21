@@ -1,5 +1,5 @@
 
-**message to grader: heroku wouldnt allow me to diploy my application, however I recorded the functionalty through screenshots as provided below**
+***NOTE TO GRADER: heroku link is not functioning properly, so I provided a demo think in my submission to display functionality of code***
 # MVC (Model-View-Controller) Blog
 [![License: ](https://img.shields.io/badge/license-MIT-brightgreen)](https://opensource.org/licenses/)
 #### **Name:** Honore Nelson 
@@ -25,26 +25,28 @@ Writing about tech can be just as important as making it. Developers spend plent
 
 My task was to build a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. You’ll build this site completely from scratch and deploy it to Heroku. Your app will follow the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
 
+## Walkthrough:
+---
+### Click the img to begin the video- 
+[![walkthrough video](https://img.youtube.com/vi/rTw8SXJeWIk/0.jpg)](https://www.youtube.com/watch?v=rTw8SXJeWIk)
 
 ## Application:
 ---
 ### Homepage-
-![homepage](assets/ss4.png)
+![homepage](assets/ss1.png)
 
 ### Sign Up-
 ![signup page](assets/ss5.png)
 
-### Logged in Homepage-
-![loggedin homepage](assets/ss1.png)
+### Login In-
+![signup page](assets/ss-login.png)
 
 ### Create Post-
 ![create post](assets/ss2.png)
 
-### New User Dashboard-
-![dashboard](assets/ss-dashboard.png)
+### Login Dashboard-
+![dashboard](assets/ss-logindash.png)
 
-### Heroku 503 error-
-![heroku 503 error](assets/ss-heroku.png)
 
 
     
@@ -85,6 +87,7 @@ THEN the title and contents of my post are saved and I am taken back to an updat
 ## Future Development:
 ---
 ```md
+
 WHEN I click on one of my existing posts in the dashboard
 THEN I am able to delete my post and taken back to an updated dashboard
 
@@ -94,6 +97,7 @@ THEN the comment is saved and the post is updated to display the comment, the co
 WHEN I click on one of my existing posts in the dashboard
 THEN I am able to update my post and taken back to an updated dashboard
 ```
+
 ## Technologies Used:
 ---
 - **Bcrypt:** encripting user passwords to prevent hacking
