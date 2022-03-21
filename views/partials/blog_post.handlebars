@@ -16,16 +16,17 @@
                 <p id="dateCreated">
                 {{ date_created }}
                 </p>
-                
+
+                <a href="/post/{{id}}">{{comment.length}} </a>
+                                
                 {{#if logged_in}}
 
-                {{>commentForm}}
+                <a href="/login"><p>add comment</p></a>
 
                 {{else}}
                 
-                {{!-- <a href="/login"><p>add comment</p></a> --}}
+                {{!-- {{>commentForm}} --}}
                 {{>commentForm}}
-
 
                 {{/if}}
             </div>

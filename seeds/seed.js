@@ -3,6 +3,7 @@ const { User, BlogPost } = require('../models');
 
 const userData = require('./userData.json');
 const blogData = require('./blogData.json');
+const commentData = require('./commentData.json');
 
 const seedDatabase = async () => {
     //does this need to be false to not overwrite data that is added later?
@@ -16,6 +17,12 @@ const seedDatabase = async () => {
     for (const blogPost of blogData) {
         await BlogPost.create({
             ...blogPost,
+            user_id: users[Math.floor(Math.random() * users.length)].id,
+        })
+    };
+    for (const comment of commentData) {
+        await Comment.create({
+            ...comment,
             user_id: users[Math.floor(Math.random() * users.length)].id,
         })
     }

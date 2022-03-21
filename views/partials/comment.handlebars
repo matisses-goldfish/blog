@@ -1,19 +1,22 @@
-    <div class="card hoverable bg-dark text-white" id="commentPost">
+    <div class="card hoverable" id="comments">
+    {{#each this}}
         <div class="row">
             <div class="col">
                 <p id="postId">
-                {{ post_id }}
+                    {{ post_id }}
                 </p>
                 <h5 id="response">
-                    <a> {{ response }} </a>
+                     {{ comment.response }}
                 </h5>
                 <p id="userID">
                     User: {{ user.username }}
                 </p>
                 <p id="dateCreated">
-                {{ date_created }}
+                {{ comment.date_created }}
                 </p>
                 
             </div>
         </div>
+    {{/each}}
+
     </div>
